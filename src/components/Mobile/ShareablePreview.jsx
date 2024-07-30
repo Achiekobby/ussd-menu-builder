@@ -123,7 +123,6 @@ const errorMessageStyle = {
 const ShareablePreview = () => {
   const location = useLocation();
 
-  //* UseState Hooks
   const [questions, setQuestions] = useState([]);
   const [currentContent, setCurrentContent] = useState(initialQuestion);
   const [inputValue, setInputValue] = useState("");
