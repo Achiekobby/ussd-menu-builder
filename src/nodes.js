@@ -1,4 +1,4 @@
-export default [
+const nodes = [
   {
     id: "0",
     type: "input",
@@ -12,3 +12,5 @@ export default [
     position: { x: 250, y: 250 },
   },
 ];
+
+export default nodes;

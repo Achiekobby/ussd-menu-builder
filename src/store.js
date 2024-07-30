@@ -93,14 +93,18 @@ const useStore = create(
           edges: addEdge(connection, get().edges),
         });
       },
+      // onSelectionChange: ({ nodes }) => {
+      //   set({
+      //     selectedNode: nodes.map((node) => {
+      //       if (nodes[0].id === node.id) {
+      //         return node;
+      //       }
+      //     }),
+      //   });
+      // },
       onSelectionChange: ({ nodes }) => {
-        set({
-          selectedNode: nodes.map((node) => {
-            if (nodes[0].id === node.id) {
-              return node;
-            }
-          }),
-        });
+        const selectedNode = nodes.filter((node) => node.id === nodes[0].id);
+        set({ selectedNode });
       },
       setNodes: (nodes) => {
         const startSurvey = nodes.filter((node) => node.type === "startSurvey");
