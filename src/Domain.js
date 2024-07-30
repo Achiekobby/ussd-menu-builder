@@ -1,5 +1,5 @@
 const testDomain = "https://nestle.txtghana.com/api";
 
-export default {
+export default Domain = {
   backendDomain:testDomain
 }
