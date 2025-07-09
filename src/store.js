@@ -113,11 +113,6 @@ const useStore = create(
         const node = get().nodes.find(n => n.id === nodeId);
         if (!node) return;
         
-        // Remove connected edges
-        const connectedEdges = get().edges.filter(
-          edge => edge.source === nodeId || edge.target === nodeId
-        );
-        
         set({
           nodes: get().nodes.filter(n => n.id !== nodeId),
           edges: get().edges.filter(edge => edge.source !== nodeId && edge.target !== nodeId)
