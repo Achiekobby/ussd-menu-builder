@@ -1,68 +1,165 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@layer base {
+  * {
+    @apply border-secondary-200;
   }
-  a:hover {
-    color: #747bff;
+  
+  body {
+    @apply bg-secondary-50 text-secondary-900 font-sans antialiased;
+}
+
+html {
+    @apply scroll-smooth;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer components {
+.btn-primary {
+    @apply inline-flex items-center justify-center px-4 py-2 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 transition-all duration-200 shadow-soft;
+}
+
+.btn-secondary {
+    @apply inline-flex items-center justify-center px-4 py-2 bg-secondary-100 text-secondary-700 font-medium rounded-lg hover:bg-secondary-200 focus:outline-none focus:ring-2 focus:ring-secondary-500 focus:ring-offset-2 transition-all duration-200;
   }
+  
+  .btn-accent {
+    @apply inline-flex items-center justify-center px-4 py-2 bg-accent-600 text-white font-medium rounded-lg hover:bg-accent-700 focus:outline-none focus:ring-2 focus:ring-accent-500 focus:ring-offset-2 transition-all duration-200 shadow-glow-accent;
+  }
+  
+.card {
+    @apply bg-white rounded-xl shadow-soft border border-secondary-200 p-6;
+  }
+  
+  .card-hover {
+    @apply card hover:shadow-medium transition-all duration-200 hover:-translate-y-1;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-secondary-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all duration-200;
+  }
+  
+  .panel {
+    @apply bg-white/80 backdrop-blur-sm rounded-xl shadow-soft border border-white/20;
+  }
+  
+  .glass-effect {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+  
+  .ai-gradient-bg {
+    @apply bg-gradient-to-br from-primary-500 via-accent-500 to-accent-700;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+}
+
+/* ReactFlow custom styles */
+.react-flow__node {
+  @apply shadow-soft border-0;
+}
+
+.react-flow__node.selected {
+  @apply shadow-glow;
+}
+
+.react-flow__handle {
+  @apply bg-primary-500 border-2 border-white transition-all duration-200;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.react-flow__handle:hover {
+  @apply bg-primary-600 scale-125;
+  transform: scale(1.25) !important;
+}
+
+.react-flow__handle.source {
+  @apply bg-primary-500;
+}
+
+.react-flow__handle.target {
+  @apply bg-secondary-500;
+}
+
+.react-flow__handle.connecting {
+  @apply bg-accent-500 scale-150;
+  transform: scale(1.5) !important;
+}
+
+.react-flow__handle.valid {
+  @apply bg-success-500;
+}
+
+.react-flow__handle.invalid {
+  @apply bg-error-500;
+}
+
+.react-flow__edge-path {
+  @apply stroke-primary-400;
+  stroke-width: 3px;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  @apply stroke-primary-600;
+  stroke-width: 4px;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5;
+  animation: dashdraw 0.5s linear infinite;
+}
+
+@keyframes dashdraw {
+  from {
+    stroke-dashoffset: 10;
+  }
+}
+
+.react-flow__connection-line {
+  @apply stroke-accent-500;
+  stroke-width: 3px;
+}
+
+.react-flow__connection-path {
+  @apply stroke-accent-500;
+  stroke-width: 3px;
+}
+
+.react-flow__controls {
+  @apply shadow-soft rounded-lg border border-secondary-200;
+}
+
+.react-flow__controls button {
+  @apply bg-white hover:bg-secondary-50 border-0 text-secondary-600 hover:text-secondary-900;
+}
+
+.react-flow__minimap {
+  @apply shadow-soft rounded-lg border border-secondary-200;
 }

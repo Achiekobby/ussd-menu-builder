@@ -1,13 +1,12 @@
 import toast from "react-hot-toast";
 
 export const showAlert = (message) => {
-  toast(message, {
+  toast.error(message, {
     style: {
       borderRadius: "10px",
       background: "#e44e4e",
       color: "#fff",
     },
-    
   });
 };
 
