@@ -131,7 +131,6 @@ npm run build
 src/
 ├── components/          # Reusable UI components
 │   ├── AIAssistant/    # AI optimization interface
-│   ├── AnalyticsPanel/ # Data visualization
 │   ├── WidgetBar/      # Node palette
 │   └── PropertiesBar/  # Node properties editor
 ├── nodes_library/      # Custom node components

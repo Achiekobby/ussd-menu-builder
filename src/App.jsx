@@ -22,8 +22,6 @@ import AINode from "./nodes_library/AINode";
 import Sidebar from "./components/WidgetBar";
 import PropertiesBar from "./components/PropertiesBar";
 import AIAssistant from "./components/AIAssistant";
-import AnalyticsPanel from "./components/AnalyticsPanel";
-import CollaborationPanel from "./components/CollaborationPanel";
 import LandingPage from "./components/LandingPage";
 import ConfirmationModal from "./components/ConfirmationModal";
 import ContextMenu from "./components/ContextMenu";
@@ -41,7 +39,6 @@ import { saveCurrentState, undo, redo, canUndo, canRedo } from "./utilities/hist
 
 // Icons
 import {
-  Eye,
   Share2,
   Download,
   Undo2,
@@ -54,10 +51,6 @@ import {
   Brain,
   Target,
   MessageSquare,
-  ShoppingCart,
-  UserCheck,
-  AlertCircle,
-  CheckCircle,
   Clock,
   TrendingUp,
   Layers,
@@ -110,7 +103,6 @@ function App() {
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [activePanel, setActivePanel] = useState("ai");
   const [showAIAssistant, setShowAIAssistant] = useState(false);
-  const [isCollaborating, setIsCollaborating] = useState(false);
   const [showLandingPage, setShowLandingPage] = useState(true);
   const [showClearConfirmation, setShowClearConfirmation] = useState(false);
   const [analyticsData, setAnalyticsData] = useState({
@@ -154,7 +146,7 @@ function App() {
     return generatedUrl;
   };
 
-  const handleKeyboardAction = (action) => {
+  const handleKeyboardAction = useCallback((action) => {
     switch (action) {
       case 'undo':
         const undoState = undo();
@@ -178,7 +170,7 @@ function App() {
       default:
         break;
     }
-  };
+  }, [setNodes, onEdgesChange]);
 
   // Save state to history when nodes or edges change
   useEffect(() => {
@@ -396,8 +388,6 @@ function App() {
           <Controls className="!bg-white/80 !backdrop-blur-sm !border !border-white/20 !rounded-xl !shadow-soft" />
           <MiniMap className="!bg-white/80 !backdrop-blur-sm !border !border-white/20 !rounded-xl !shadow-soft" />
           
-          {/* Top Panel - Removed original buttons, now only shows slide-in menu trigger */}
-
           {/* Top Left Panel - Horizontal buttons on top of Journey Nodes */}
           <Panel position="top-left" className="!bg-transparent" style={{ marginLeft: '16px', marginTop: '16px' }}>
             <motion.div 
