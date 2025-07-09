@@ -21,7 +21,6 @@ import {
   FileText,
   Video,
   Download,
-  ExternalLink,
   ChevronDown,
   ChevronRight
 } from 'lucide-react';

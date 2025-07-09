@@ -11,24 +11,13 @@ import {
   ArrowRight, 
   Play, 
   Star, 
-  BarChart3, 
-  MessageSquare,
-  GitBranch,
-  Cpu,
-  Activity,
-  Globe,
-  Shield,
-  Clock,
-  Award,
   Rocket,
   ChevronDown,
-  Github,
-  ExternalLink
+  Github
 } from "lucide-react";
 import { cn } from "../utils/cn";
 
 const LandingPage = ({ onGetStarted }) => {
-  const [currentFeature, setCurrentFeature] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

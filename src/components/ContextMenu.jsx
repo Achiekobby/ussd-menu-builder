@@ -4,8 +4,6 @@ import {
   Copy, 
   Trash2, 
   Edit, 
-  Settings, 
-  MoreHorizontal,
   Copy as Duplicate,
   Lock,
   Unlock

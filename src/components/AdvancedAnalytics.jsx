@@ -5,28 +5,18 @@ import {
   TrendingUp, 
   Users, 
   Target, 
-  Clock, 
   DollarSign,
   Activity,
   Filter,
   Download,
   RefreshCw,
-  Calendar,
-  PieChart,
-  LineChart,
-  BarChart,
   Eye,
-  EyeOff,
-  Settings,
   Plus,
   X,
-  ChevronDown,
-  ChevronRight,
   Star,
   AlertTriangle,
   CheckCircle,
-  Zap,
-  Brain
+  Zap
 } from "lucide-react";
 import { cn } from "../utils/cn";
 
@@ -35,10 +25,7 @@ const AdvancedAnalytics = ({ nodes, edges, isOpen, onClose }) => {
   const [timeRange, setTimeRange] = useState("7d");
   const [refreshInterval, setRefreshInterval] = useState(30);
   const [isAutoRefresh, setIsAutoRefresh] = useState(true);
-  const [selectedMetrics, setSelectedMetrics] = useState(["conversion", "engagement", "revenue"]);
   const [showFilters, setShowFilters] = useState(false);
-  const [abTests, setAbTests] = useState([]);
-  const [customReports, setCustomReports] = useState([]);
 
   // Real-time analytics data
   const [analyticsData, setAnalyticsData] = useState({

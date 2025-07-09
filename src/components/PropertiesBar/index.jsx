@@ -8,11 +8,8 @@ import {
   Zap, 
   Brain,
   BarChart3,
-  Palette,
-  Link,
   Trash2,
-  Copy,
-  Eye
+  Copy
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import useStore from "../../store";
