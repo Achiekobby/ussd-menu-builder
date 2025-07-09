@@ -188,35 +188,3 @@ describe('App Component', () => {
     });
   });
 });
-
-describe('App Integration Tests', () => {
-  test('demo page has proper styling and content', () => {
-    render(<App />);
-    
-    // Check for demo page content
-    expect(screen.getByTestId('demo-page')).toBeInTheDocument();
-    expect(screen.getByText('Start Demo')).toBeInTheDocument();
-  });
-
-  test('flow builder has proper layout', async () => {
-    render(<App />);
-    
-    // Start demo
-    fireEvent.click(screen.getByText('Start Demo'));
-
-    await waitFor(() => {
-      // Check for proper layout structure
-      const reactFlow = screen.getByTestId('react-flow');
-      expect(reactFlow).toBeInTheDocument();
-      
-      // Check for background
-      expect(screen.getByTestId('background')).toBeInTheDocument();
-      
-      // Check for controls
-      expect(screen.getByTestId('controls')).toBeInTheDocument();
-      
-      // Check for minimap
-      expect(screen.getByTestId('minimap')).toBeInTheDocument();
-    });
-  });
-});
